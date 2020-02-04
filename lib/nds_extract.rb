@@ -25,10 +25,25 @@ def gross_for_director(d)
 end
 
 def list_of_directors(source)
-  # Write this implementation
+  directors = []
+  index = 0
+  while index < source.length do
+    directors << source[index][:name]
+    index += 1
+  end
+  directors
 end
 
 def total_gross(source)
+  dir_index = 0
+  grandtotal = 0
+  directornames = list_of_directors(source)
+  
+  while dir_index < directornames.length do
+    grandtotal += directors_totals(source)["#{directornames[dir_index]}"] # calling director name from list_of_directors to use as key to access directors_totals hash calling gross value for each director
+    dir_index += 1
+  end
+  grandtotal
   # Write this implementation
   #
   # Should use methods:
@@ -41,3 +56,4 @@ def total_gross(source)
 end
 
 
+pp directors_database
